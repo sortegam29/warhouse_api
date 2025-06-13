@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>warhouse API Documentation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        nav { margin-bottom: 20px; }
+        nav a { margin-right: 15px; text-decoration: none; color: #007BFF; }
+        h2 { color: #333; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; }
+        pre { background: #f8f8f8; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'docs_home' %}">Home</a>
+        <a href="{% url 'docs_products' %}">Products</a>
+        <a href="{% url 'docs_warehouses' %}">Warehouses</a>
+        <a href="{% url 'docs_inventory' %}">Inventory</a>
+    </nav>
+    <h1>warhouse API Documentation</h1>
+    <p><strong>Base URL:</strong> <code>http://localhost:8000/api/</code></p>
+    <p><strong>Authentication:</strong> None (v1.0.0)</p>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends "docs/base.html" %}
+{% block content %}
+    <h2>Welcome</h2>
+    <p>This documentation provides a complete reference for the <strong>warhouse</strong> API, a universal warehouse management system designed to handle any type of product storage and tracking.</p>
+    
+    <h3>Endpoints Available</h3>
+    <ul>
+        <li><a href="{% url 'docs_products' %}">Products</a> - Manage product catalog.</li>
+        <li><a href="{% url 'docs_warehouses' %}">Warehouses</a> - Manage storage locations.</li>
+        <li><a href="{% url 'docs_inventory' %}">Inventory</a> - Track stock levels and minimum thresholds.</li>
+    </ul>
+
+    <h3>Getting Started</h3>
+    <ol>
+        <li>Use Postman or curl to test endpoints.</li>
+        <li>Create a product, warehouse, and inventory entry.</li>
+        <li>Explore filters, relations, and error responses.</li>
+    </ol>
+{% endblock %}
