@@ -1,0 +1,32 @@
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.db
+*.sqlite3
+
+# Virtual Environment
+venv/
+env/
+*.env
+
+# Django
+/static/
+/media/
+.env
+.env.local
+*.log
+*.pot
+*.mo
+locale/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docs
+/docs/media/
