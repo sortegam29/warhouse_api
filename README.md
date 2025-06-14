@@ -21,13 +21,40 @@
 
 ---
 
+## 🔐 Authentication
+
+This API uses **JWT tokens** for secure access. To use protected endpoints:
+
+1. **Get a token**:
+   ```bash
+   POST /api/token/
+   {
+     "username": "your-username",
+     "password": "your-password"
+   }
+   ```
+2. **Use the token in protected endpoints:**:
+   ```bash
+   Authorization: Bearer <your-access-token>
+   ```
+
+2. **Refresh token when expired:**:
+   ```bash
+   POST /api/token/refresh/
+   {
+       "refresh": "<your-refresh-token>"
+   }
+   ```
+**Tokens expire after 60 minutes (access) and 24 hours (refresh).**
+
+---
+
 ## 📝 Documentation
 Visit: http://localhost:8000/docs/
 
 ---
 
 ## 🚀 Future Features
-- **JWT Authentication**
 - **Batches & Expiration Dates**
 - **Product Variants**
 - **Webhooks & Events**
