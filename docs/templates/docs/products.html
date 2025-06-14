@@ -4,6 +4,13 @@
     <p><strong>Endpoint:</strong> <code>/api/products/</code></p>
     <p><strong>Methods:</strong> GET, POST, PUT, PATCH, DELETE</p>
 
+    <h3>⚠️ Authentication Required</h3>
+        <p>All requests to this endpoint must include a valid JWT token in the <code>Authorization</code> header:</p>
+    <pre>
+        Authorization: Bearer <your-access-token>
+    </pre>
+        <p>See <a href="{% url 'docs_authentication' %}">Authentication</a> for details.</p>
+
     <h3>Model Fields</h3>
     <ul>
         <li><code>sku</code> (string, unique)</li>

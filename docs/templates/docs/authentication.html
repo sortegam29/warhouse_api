@@ -1,0 +1,74 @@
+{% extends "docs/base.html" %}
+{% block content %}
+    <h2>Authentication</h2>
+    <p>This API uses <strong>JWT (JSON Web Tokens)</strong> for secure access. All endpoints require authentication unless otherwise stated.</p>
+
+    <h3>Endpoints</h3>
+    <ul>
+        <li><code>POST /api/token/</code> - Obtain access and refresh tokens</li>
+        <li><code>POST /api/token/refresh/</code> - Refresh an expired access token</li>
+    </ul>
+
+    <h3>How to Use</h3>
+    <ol>
+        <li><strong>Get a token:</strong></li>
+        <pre>
+POST /api/token/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "your-username",
+    "password": "your-password"
+}
+        </pre>
+
+        <li><strong>Response:</strong></li>
+        <pre>
+{
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.xxxxx",
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.yyyyy"
+}
+        </pre>
+
+        <li><strong>Use the token in protected endpoints:</strong></li>
+        <pre>
+GET /api/products/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.xxxxx
+        </pre>
+
+        <li><strong>Refresh token when expired:</strong></li>
+        <pre>
+POST /api/token/refresh/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.yyyyy"
+}
+        </pre>
+    </ol>
+
+    <h3>Permissions</h3>
+    <ul>
+        <li><strong>IsAuthenticated</strong>: All endpoints require valid JWT token.</li>
+        <li><strong>Admin-only</strong> (futuro): Some endpoints may require admin privileges.</li>
+    </ul>
+
+    <h3>Error Responses</h3>
+    <ul>
+        <li><code>401 Unauthorized</code> - Missing or invalid token.</li>
+        <li><code>403 Forbidden</code> - Insufficient permissions (futuro).</li>
+    </ul>
+
+    <h3>Token Expiration</h3>
+    <ul>
+        <li>Access Token: 60 minutes</li>
+        <li>Refresh Token: 24 hours</li>
+    </ul>
+
+    <h3>Recommended Tests</h3>
+    <ol>
+        <li>Try accessing `/api/products/` without a token: Should return <code>401</code>.</li>
+        <li>Obtain a token and retry: Should return <code>200 OK</code>.</li>
+        <li>Wait for token to expire and use `/api/token/refresh/` to get a new one.</li>
+    </ol>
+{% endblock %}

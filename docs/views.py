@@ -11,3 +11,6 @@ def docs_warehouses(request):
 
 def docs_inventory(request):
     return render(request, 'docs/inventory.html')
+
+def docs_authentication(request):
+    return render(request, 'docs/authentication.html')
