@@ -1,0 +1,29 @@
+{% extends "docs/base.html" %}
+{% block content %}
+
+<h2>Movements</h2>
+<p><strong>Endpoint:</strong> <code>/api/movements/</code></p>
+<p><strong>Methods:</strong> POST</p>
+
+<h3>Model Fields</h3>
+<ul>
+    <li><code>movement_type</code> (choices: in, out, transfer, adjustment)</li>
+    <li><code>product_id</code> (Product ID)</li>
+    <li><code>from_location_id</code> (Location ID, optional)</li>
+    <li><code>to_location_id</code> (Location ID, optional)</li>
+    <li><code>quantity</code> (decimal)</li>
+    <li><code>reason</code> (string)</li>
+</ul>
+
+<h3>Example Request (POST)</h3>
+<pre>
+{
+    "movement_type": "in",
+    "product_id": 1,
+    "to_location_id": 2,
+    "quantity": "100",
+    "reason": "Compra"
+}
+</pre>
+
+{% endblock %}

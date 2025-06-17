@@ -1,0 +1,29 @@
+{% extends "docs/base.html" %}
+{% block content %}
+
+<h2>Product Variants</h2>
+<p><strong>Endpoint:</strong> <code>/api/product-variants/</code></p>
+<p><strong>Methods:</strong> GET, POST, PUT, PATCH, DELETE</p>
+
+<h3>Model Fields</h3>
+<ul>
+    <li><code>product</code> (Product ID)</li>
+    <li><code>sku</code> (string, unique)</li>
+    <li><code>attributes</code> (JSON, e.g., {"color": "red", "size": "XL"})</li>
+</ul>
+
+<h3>Example Request (POST)</h3>
+<pre>
+{
+    "product_id": 1,
+    "sku": "PROD001-RED-M",
+    "attributes": {"color": "red", "size": "M"}
+}
+</pre>
+
+<h3>Error Responses</h3>
+<ul>
+    <li><code>400 Bad Request</code> - Duplicate SKU or invalid product ID.</li>
+</ul>
+
+{% endblock %}

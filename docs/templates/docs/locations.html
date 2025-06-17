@@ -1,0 +1,26 @@
+{% extends "docs/base.html" %}
+{% block content %}
+
+<h2>Locations</h2>
+<p><strong>Endpoint:</strong> <code>/api/locations/</code></p>
+<p><strong>Methods:</strong> GET, POST, PUT, PATCH, DELETE</p>
+
+<h3>Model Fields</h3>
+<ul>
+    <li><code>warehouse</code> (Warehouse ID)</li>
+    <li><code>parent</code> (Location ID, optional)</li>
+    <li><code>code</code> (string, unique)</li>
+    <li><code>name</code> (string)</li>
+</ul>
+
+<h3>Example Request (POST)</h3>
+<pre>
+{
+    "warehouse_id": 1,
+    "parent": 2,
+    "code": "WH001-A1",
+    "name": "Estantería A1"
+}
+</pre>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "docs/base.html" %}
+{% block content %}
+
+<h2>Batches</h2>
+<p><strong>Endpoint:</strong> <code>/api/batches/</code></p>
+<p><strong>Methods:</strong> GET, POST, PUT, PATCH, DELETE</p>
+
+<h3>Model Fields</h3>
+<ul>
+    <li><code>product_id</code> (Product ID)</li>
+    <li><code>lot_number</code> (string)</li>
+    <li><code>expiration_date</code> (date, optional)</li>
+    <li><code>manufacture_date</code> (date, optional)</li>
+    <li><code>quantity</code> (decimal)</li>
+    <li><code>location</code> (Location ID, optional)</li>
+</ul>
+
+<h3>Example Request (POST)</h3>
+<pre>
+{
+    "product_id": 1,
+    "lot_number": "LOT202504",
+    "expiration_date": "2026-04-01",
+    "manufacture_date": "2024-04-01",
+    "quantity": "50",
+    "location": 2
+}
+</pre>
+
+{% endblock %}
