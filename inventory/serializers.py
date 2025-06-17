@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Inventory, Product, Location, InventoryMovement, Batch
 from products.serializers import ProductSerializer
 from warehouses.serializers import WarehouseSerializer, LocationSerializer
+from decimal import Decimal, InvalidOperation
 
 class InventorySerializer(serializers.ModelSerializer):
     product = ProductSerializer(read_only=True)
@@ -23,7 +24,14 @@ class InventoryMovementSerializer(serializers.ModelSerializer):
     class Meta:
         model = InventoryMovement
         fields = ['id', 'movement_type', 'product', 'product_id', 'from_location', 'from_location_id', 'to_location', 'to_location_id', 'quantity', 'reason', 'user', 'created_at']
-
+    
+    def validate_quantity(self, value):
+        try:
+            # Asegura que sea un número válido
+            return Decimal(value)
+        except (InvalidOperation, TypeError, ValueError):
+            raise serializers.ValidationError("El valor debe ser un número decimal.")
+        
 class BatchSerializer(serializers.ModelSerializer):
     product = ProductSerializer(read_only=True)
     product_id = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all(), source='product')
