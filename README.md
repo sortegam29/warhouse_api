@@ -14,9 +14,28 @@
 ---
 
 ## 📡 Endpoints
+### 🔐 Authentication
+- *POST* /api/token/ - Obtain JWT access token
+- *POST* /api/token/refresh/ - Refresh expired token
+### 📦 Products
 - *GET* /api/products/ - List products
+- *POST* /api/products/ - Create product
+- *GET* /api/products/<id>/ - View product details
+### 🧱 Product Variants
+- *GET* /api/product-variants/ - List variants
+- *POST* /api/product-variants/ - Create variant with attributes
+### 🏗️ Locations
+- *GET* /api/locations/ - List hierarchical locations
+- *POST* /api/locations/ - Create nested location (e.g., warehouse → shelf)
+### 🏤 Warhouses
 - *GET* /api/warehouses/ - List warehouses
+### 🔄 Inventory
 - *GET* /api/inventory/ - List inventory
+- *POST* /api/movements/ - Register entry, exit, transfer, or adjustment
+### 📦 Batches
+- *GET* /api/batches/ - List product batches
+- *POST* /api/batches/ - Create batch with lot number and expiration date
+### 📝 Documentation
 - *GET* /docs/ - Developer documentation
 
 ---
@@ -55,9 +74,11 @@ Visit: http://localhost:8000/docs/
 ---
 
 ## 🚀 Future Features
-- **Batches & Expiration Dates**
-- **Product Variants**
-- **Webhooks & Events**
+
+- **Bulk Upload : Load inventory via CSV/Excel with validation and error reporting**
+- **Webhooks : Notify external systems about stock changes or events**
+- **Multi-Tenancy : Support multiple clients/companies in one instance**
+- **GraphQL : Alternative query interface for complex requests**
 - **Integration with e-commerce platforms**
 
 ---
@@ -67,7 +88,7 @@ Visit: http://localhost:8000/docs/
 ```bash
 # Clone the repo
 git clone https://github.com/sortegam29/warhouse_api.git 
-cd warhouse
+cd warhouse_api
 
 # Create virtual environment
 python -m venv venv
@@ -89,3 +110,6 @@ MIT
 
 ## 📌 Contributing
 Contributions are welcome! Please read our contributing guidelines for details on how to contribute.
+
+## 📬 Contact
+For questions or feedback, reach out to sebastian.ortega29@inacapmail.cl or open an issue on GitHub.
